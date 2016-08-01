@@ -98,5 +98,5 @@ PUNCTUAL_GIT_SYMBOL_DIVERGED="~";
 
 ## Changelog
 
-### 0.1.0 — 2016-08-01
+### [0.1.0](https://github.com/dannynimmo/punctual-zsh-theme/releases/tag/v0.1.0) — 2016-08-01
 * Released!
