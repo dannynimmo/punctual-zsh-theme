@@ -11,11 +11,11 @@
 #      PUNCTUAL_SHOW_HOSTNAME=false;
 #      PUNCTUAL_CURRENT_DIR_COLOUR=yellow;
 
-PUNCTUAL_SHOW_TIMESTAMP=${PUNCTUAL_SHOW_TIMESTAMP:-true};
-PUNCTUAL_SHOW_USER=${PUNCTUAL_SHOW_USER:-true};
-PUNCTUAL_SHOW_HOSTNAME=${PUNCTUAL_SHOW_HOSTNAME:-true};
-PUNCTUAL_SHOW_CURRENT_DIR=${PUNCTUAL_SHOW_CURRENT_DIR:-true};
-PUNCTUAL_SHOW_GIT=${PUNCTUAL_SHOW_GIT:-true};
+PUNCTUAL_SHOW_TIMESTAMP="${PUNCTUAL_SHOW_TIMESTAMP:-true}";
+PUNCTUAL_SHOW_USER="${PUNCTUAL_SHOW_USER:-true}";
+PUNCTUAL_SHOW_HOSTNAME="${PUNCTUAL_SHOW_HOSTNAME:-true}";
+PUNCTUAL_SHOW_CURRENT_DIR="${PUNCTUAL_SHOW_CURRENT_DIR:-true}";
+PUNCTUAL_SHOW_GIT="${PUNCTUAL_SHOW_GIT:-true}";
 
 PUNCTUAL_TIMESTAMP_COLOUR="${PUNCTUAL_TIMESTAMP_COLOUR:-reset}";
 PUNCTUAL_USER_COLOUR="${PUNCTUAL_USER_COLOUR:-blue}";
@@ -56,11 +56,11 @@ ZSH_THEME_GIT_PROMPT_DIVERGED="${ZSH_THEME_GIT_PROMPT_DIVERGED:-${PUNCTUAL_GIT_S
 
 
 punctualNewline () {
-    echo "";
+    echo '';
 }
 
 punctualDecorate () {
-    if [[ $2 == "reset" ]]; then
+    if [[ $2 == 'reset' ]]; then
         echo -n "%{$reset_color%}";
     else
         echo -n "%{$fg[$2]%}";
@@ -71,33 +71,33 @@ punctualDecorate () {
 
 
 punctualUser () {
-    echo -n "as";
-    echo -n " ";
-    if [[ $USER == "root" ]]; then
-        punctualDecorate "%n" "${PUNCTUAL_ROOT_USER_COLOUR}";
+    echo -n 'as';
+    echo -n ' ';
+    if [[ $USER == 'root' ]]; then
+        punctualDecorate '%n' "${PUNCTUAL_ROOT_USER_COLOUR}";
     else
-        punctualDecorate "%n" "${PUNCTUAL_USER_COLOUR}";
+        punctualDecorate '%n' "${PUNCTUAL_USER_COLOUR}";
     fi;
 }
 
 punctualHostname () {
-    echo -n "on";
-    echo -n " ";
-    punctualDecorate "%m" "${PUNCTUAL_HOSTNAME_COLOUR}";
+    echo -n 'on';
+    echo -n ' ';
+    punctualDecorate '%m' "${PUNCTUAL_HOSTNAME_COLOUR}";
 }
 
 punctualCurrentDir () {
-    echo -n "in";
-    echo -n " ";
-    punctualDecorate "%~" "${PUNCTUAL_CURRENT_DIR_COLOUR}";
+    echo -n 'in';
+    echo -n ' ';
+    punctualDecorate '%~' "${PUNCTUAL_CURRENT_DIR_COLOUR}";
 }
 
 punctualGitStatus () {
     PUNCTUAL_GIT_CURRENT_BRANCH=`git_current_branch | xargs echo -n`;
     PUNCTUAL_GIT_PROMPT_STATUS=`git_prompt_status | sed -E 's/!+/!/g' | xargs echo -n`;
     if [[ ! -z "${PUNCTUAL_GIT_CURRENT_BRANCH}" ]]; then
-        echo -n "at";
-        echo -n " ";
+        echo -n 'at';
+        echo -n ' ';
         punctualDecorate "${PUNCTUAL_GIT_CURRENT_BRANCH}" "${PUNCTUAL_GIT_COLOUR}";
         if [[ ! -z "${PUNCTUAL_GIT_PROMPT_STATUS}" ]]; then
             punctualDecorate "(${PUNCTUAL_GIT_PROMPT_STATUS})" "${PUNCTUAL_GIT_COLOUR}";
@@ -113,28 +113,28 @@ punctualPrompt () {
     echo -n "%(?.%{$reset_color%}.%{$fg[red]%})";
     echo -n "${PUNCTUAL_PROMPT}";
     echo -n "%{$reset_color%}";
-    echo -n " ";
+    echo -n ' ';
 }
 
 
 punctualBuildTheme () {
     punctualNewline;
-    echo -n "  ";
+    echo -n '  ';
     if [[ ${PUNCTUAL_SHOW_TIMESTAMP} = true ]]; then
         punctualTimestamp;
-        echo -n " ";
+        echo -n ' ';
     fi;
     if [[ ${PUNCTUAL_SHOW_USER} = true ]]; then
         punctualUser;
-        echo -n " ";
+        echo -n ' ';
     fi;
     if [[ ${PUNCTUAL_SHOW_HOSTNAME} = true ]]; then
         punctualHostname;
-        echo -n " ";
+        echo -n ' ';
     fi;
     if [[ ${PUNCTUAL_SHOW_CURRENT_DIR} = true ]]; then
         punctualCurrentDir;
-        echo -n " ";
+        echo -n ' ';
     fi;
     if [[ ${PUNCTUAL_SHOW_GIT} = true ]]; then
         punctualGitStatus;
@@ -143,4 +143,4 @@ punctualBuildTheme () {
     punctualPrompt;
 }
 
-PROMPT="$(punctualBuildTheme)";
+PROMPT='$(punctualBuildTheme)'
