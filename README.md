@@ -15,6 +15,14 @@ Add a bit of flavour to your prompt! My personal Zsh prompt theme, influenced he
 
 ## Installation
 
+In the screenshot above I'm using [Solarized colours](https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized) for [iTerm2](https://www.iterm2.com/), along with the [Inconsolata font](https://www.google.com/fonts/specimen/Inconsolata).
+
+### Oh My Zsh
+
+1. Download [punctual.zsh-theme](https://raw.githubusercontent.com/dannynimmo/punctual-zsh-theme/v0.1.0/punctual.zsh-theme) into your custom theme directory, `$ZSH_CUSTOM/themes`
+2. Update `ZSH_THEME="punctual"` in your `~/.zshrc`
+3. Open a new terminal to see the theme
+
 ### Antigen
 Include the following line to `~/.zshrc` as part of your antigen setup (after any [configuration settings](#configuration)).
 ```zsh
