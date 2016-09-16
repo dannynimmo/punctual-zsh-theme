@@ -70,6 +70,19 @@ Possible values are:
 * `cyan`
 * `white`
 
+### Bold fonts
+
+Set any of the following variables to `"true"` to use the terminal's bold font.
+
+```zsh
+PUNCTUAL_TIMESTAMP_BOLD="true";
+PUNCTUAL_USER_BOLD="true";
+PUNCTUAL_ROOT_USER_BOLD="true";
+PUNCTUAL_HOSTNAME_BOLD="true";
+PUNCTUAL_CURRENT_DIR_BOLD="true";
+PUNCTUAL_GIT_BOLD="true";
+```
+
 ### Timestamp format
 
 Set the below variable to customise the timestamp format. See [`man strftime`](http://man7.org/linux/man-pages/man3/strftime.3.html) for format options.
