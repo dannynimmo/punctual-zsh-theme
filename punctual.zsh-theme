@@ -24,6 +24,13 @@ PUNCTUAL_HOSTNAME_COLOUR="${PUNCTUAL_HOSTNAME_COLOUR:-green}";
 PUNCTUAL_CURRENT_DIR_COLOUR="${PUNCTUAL_CURRENT_DIR_COLOUR:-cyan}";
 PUNCTUAL_GIT_COLOUR="${PUNCTUAL_GIT_COLOUR:-magenta}";
 
+PUNCTUAL_TIMESTAMP_BOLD="${PUNCTUAL_TIMESTAMP_BOLD:-false}";
+PUNCTUAL_USER_BOLD="${PUNCTUAL_USER_BOLD:-false}";
+PUNCTUAL_ROOT_USER_BOLD="${PUNCTUAL_ROOT_USER_BOLD:-false}";
+PUNCTUAL_HOSTNAME_BOLD="${PUNCTUAL_HOSTNAME_BOLD:-false}";
+PUNCTUAL_CURRENT_DIR_BOLD="${PUNCTUAL_CURRENT_DIR_BOLD:-false}";
+PUNCTUAL_GIT_BOLD="${PUNCTUAL_GIT_BOLD:-false}";
+
 PUNCTUAL_TIMESTAMP_FORMAT="${PUNCTUAL_TIMESTAMP_FORMAT:-%H:%M:%S}"; # see man strftime
 
 PUNCTUAL_PROMPT="${PUNCTUAL_PROMPT:-→}";
@@ -65,6 +72,11 @@ punctualDecorate () {
     else
         echo -n "%{$fg[$2]%}";
     fi;
+
+    if [[ $3 = true ]]; then
+        echo -n "%{$terminfo[bold]%}";
+    fi;
+
     echo -n ${1};
     echo -n "%{$reset_color%}";
 }
@@ -74,22 +86,22 @@ punctualUser () {
     echo -n 'as';
     echo -n ' ';
     if [[ $USER == 'root' ]]; then
-        punctualDecorate '%n' "${PUNCTUAL_ROOT_USER_COLOUR}";
+        punctualDecorate '%n' "${PUNCTUAL_ROOT_USER_COLOUR}" "${PUNCTUAL_ROOT_USER_BOLD}";
     else
-        punctualDecorate '%n' "${PUNCTUAL_USER_COLOUR}";
+        punctualDecorate '%n' "${PUNCTUAL_USER_COLOUR}" "${PUNCTUAL_USER_BOLD}";
     fi;
 }
 
 punctualHostname () {
     echo -n 'on';
     echo -n ' ';
-    punctualDecorate '%m' "${PUNCTUAL_HOSTNAME_COLOUR}";
+    punctualDecorate '%m' "${PUNCTUAL_HOSTNAME_COLOUR}" "${PUNCTUAL_HOSTNAME_BOLD}";
 }
 
 punctualCurrentDir () {
     echo -n 'in';
     echo -n ' ';
-    punctualDecorate '%~' "${PUNCTUAL_CURRENT_DIR_COLOUR}";
+    punctualDecorate '%~' "${PUNCTUAL_CURRENT_DIR_COLOUR}" "${PUNCTUAL_CURRENT_DIR_BOLD}";
 }
 
 punctualGitStatus () {
@@ -98,15 +110,15 @@ punctualGitStatus () {
     if [[ ! -z "${PUNCTUAL_GIT_CURRENT_BRANCH}" ]]; then
         echo -n 'at';
         echo -n ' ';
-        punctualDecorate "${PUNCTUAL_GIT_CURRENT_BRANCH}" "${PUNCTUAL_GIT_COLOUR}";
+        punctualDecorate "${PUNCTUAL_GIT_CURRENT_BRANCH}" "${PUNCTUAL_GIT_COLOUR}" "${PUNCTUAL_GIT_BOLD}";
         if [[ ! -z "${PUNCTUAL_GIT_PROMPT_STATUS}" ]]; then
-            punctualDecorate "(${PUNCTUAL_GIT_PROMPT_STATUS})" "${PUNCTUAL_GIT_COLOUR}";
+            punctualDecorate "(${PUNCTUAL_GIT_PROMPT_STATUS})" "${PUNCTUAL_GIT_COLOUR}" "${PUNCTUAL_GIT_BOLD}";
         fi;
     fi;
 }
 
 punctualTimestamp () {
-    punctualDecorate "%D{${PUNCTUAL_TIMESTAMP_FORMAT}}" "${PUNCTUAL_TIMESTAMP_COLOUR}";
+    punctualDecorate "%D{${PUNCTUAL_TIMESTAMP_FORMAT}}" "${PUNCTUAL_TIMESTAMP_COLOUR}" "${PUNCTUAL_TIMESTAMP_BOLD}";
 }
 
 punctualPrompt () {
