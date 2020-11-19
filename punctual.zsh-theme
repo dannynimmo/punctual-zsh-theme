@@ -11,6 +11,7 @@
 #      PUNCTUAL_SHOW_HOSTNAME=false;
 #      PUNCTUAL_CURRENT_DIR_COLOUR=yellow;
 
+PUNCTUAL_SHOW_BLANK_LINE="${PUNCTUAL_SHOW_BLANK_LINE:-true}";
 PUNCTUAL_SHOW_TIMESTAMP="${PUNCTUAL_SHOW_TIMESTAMP:-true}";
 PUNCTUAL_SHOW_USER="${PUNCTUAL_SHOW_USER:-true}";
 PUNCTUAL_SHOW_HOSTNAME="${PUNCTUAL_SHOW_HOSTNAME:-true}";
@@ -130,7 +131,9 @@ punctualPrompt () {
 
 
 punctualBuildTheme () {
-    punctualNewline;
+    if [[ ${PUNCTUAL_SHOW_BLANK_LINE} = true ]]; then
+        punctualNewline;
+    fi;
     echo -n '  ';
     if [[ ${PUNCTUAL_SHOW_TIMESTAMP} = true ]]; then
         punctualTimestamp;

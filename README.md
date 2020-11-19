@@ -39,6 +39,7 @@ By setting variables before loading the theme, you can customise the output form
 Set any of the following variables to `"false"` to hide the output.
 
 ```zsh
+PUNCTUAL_SHOW_BLANK_LINE="false";
 PUNCTUAL_SHOW_TIMESTAMP="false";
 PUNCTUAL_SHOW_USER="false";
 PUNCTUAL_SHOW_HOSTNAME="false";
