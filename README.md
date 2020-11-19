@@ -120,6 +120,9 @@ PUNCTUAL_GIT_SYMBOL_DIVERGED="~";
 
 ## Changelog
 
+### [0.3.0](https://github.com/dannynimmo/punctual-zsh-theme/releases/tag/v0.3.0) — 2020-11-19
+* Added ability to disable the initial new line
+
 ### [0.2.0](https://github.com/dannynimmo/punctual-zsh-theme/releases/tag/v0.2.0) — 2016-09-16
 * Added ability to use bold fonts
 
