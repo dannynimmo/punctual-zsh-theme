@@ -120,10 +120,23 @@ PUNCTUAL_GIT_SYMBOL_DIVERGED="~";
 
 ### Python environments
 
-The Python environment being used (conda or virtualenvironment) can be listed if the following flag is set to true (false by default):
+The Python environment being used (conda or virtualenvironment) will be added if the following flag is set to true (false by default) in your `.zshrc`:
 
 ```zsh
 PUNCTUAL_SHOW_PYTHON_ENVIRONMENT=true
+```
+
+For conda, run the following command to disable the prompt that appears at the start of the line by default:
+
+```zsh
+conda config --set changeps1 False
+
+```zsh
+And similarly for python virtual environments you can add (either of) the following commands to your .zshrc to disable the prompt:
+       
+```zsh
+export VIRTUAL_ENV_DISABLE_PROMPT=1;
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1;
 ```
 
 ## Changelog
