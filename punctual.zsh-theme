@@ -143,7 +143,7 @@ punctualPythonEnvironment () {
    if [[ -n $PYTHON_ENVIRONMENT ]]; then
        echo -n "with";
        echo -n " ";
-       punctualDecorate "${PYTHON_ENVIRONMENT}" "${PUNCTUAL_PYTHON_ENVIRONMENT_COLOUR}" "${PUNCTUAL_PYTHON_ENVIRONMENT_BOLD}";
+       punctualDecorate `basename ${PYTHON_ENVIRONMENT}` "${PUNCTUAL_PYTHON_ENVIRONMENT_COLOUR}" "${PUNCTUAL_PYTHON_ENVIRONMENT_BOLD}";
        echo -n ' ';
 
    fi
