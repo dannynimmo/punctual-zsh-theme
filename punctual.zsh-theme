@@ -134,14 +134,15 @@ punctualPrompt () {
 }
 
 punctualPythonEnvironment () {
-   echo -n "with";
-   echo -n " ";
+   
    if [[ -n $VIRTUAL_ENV ]]; then
        PYTHON_ENVIRONMENT=$VIRTUAL_ENV
    elif [[ -n $CONDA_DEFAULT_ENV ]]; then
        PYTHON_ENVIRONMENT=$CONDA_DEFAULT_ENV
    fi 
    if [[ -n $PYTHON_ENVIRONMENT ]]; then
+       echo -n "with";
+       echo -n " ";
        punctualDecorate "${PYTHON_ENVIRONMENT}" "${PUNCTUAL_PYTHON_ENVIRONMENT_COLOUR}" "${PUNCTUAL_PYTHON_ENVIRONMENT_BOLD}";
    fi
 }
