@@ -118,6 +118,14 @@ PUNCTUAL_GIT_SYMBOL_DIVERGED="~";
 ```
 
 
+### Python environments
+
+The Python environment being used (conda or virtualenvironment) can be listed if the following flag is set to true (false by default):
+
+```zsh
+PUNCTUAL_SHOW_PYTHON_ENVIRONMENT=true
+```
+
 ## Changelog
 
 ### [0.3.0](https://github.com/dannynimmo/punctual-zsh-theme/releases/tag/v0.3.0) — 2020-11-19
