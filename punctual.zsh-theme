@@ -144,6 +144,8 @@ punctualPythonEnvironment () {
        echo -n "with";
        echo -n " ";
        punctualDecorate "${PYTHON_ENVIRONMENT}" "${PUNCTUAL_PYTHON_ENVIRONMENT_COLOUR}" "${PUNCTUAL_PYTHON_ENVIRONMENT_BOLD}";
+       echo -n ' ';
+
    fi
 }
 
@@ -159,7 +161,6 @@ punctualBuildTheme () {
     fi;
         if [[ ${PUNCTUAL_SHOW_PYTHON_ENVIRONMENT} = true ]]; then
         punctualPythonEnvironment;
-        echo -n ' ';
     fi;
     if [[ ${PUNCTUAL_SHOW_USER} = true ]]; then
         punctualUser;
