@@ -141,6 +141,9 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1;
 
 ## Changelog
 
+### [0.4.0](https://github.com/dannynimmo/punctual-zsh-theme/releases/tag/v0.4.0) — 2022-12-12
+* Added Python support
+
 ### [0.3.0](https://github.com/dannynimmo/punctual-zsh-theme/releases/tag/v0.3.0) — 2020-11-19
 * Added ability to disable the initial new line
 
